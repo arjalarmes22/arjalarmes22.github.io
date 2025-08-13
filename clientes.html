@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clientes Satisfeitos - ARJ ALARMES</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <style>
+    :root {
+      --bg-dark: #1e1e1e;
+      --bg-light: #2e2e2e;
+      --yellow: #ffd700;
+      --white: #fff;
+      --gray: #ccc;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--white);
+    }
+
+    header {
+      background-color: var(--bg-light);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    }
+
+    header img {
+      height: 50px;
+    }
+
+    nav a {
+      color: var(--white);
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 600;
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--yellow);
+      transition: all 0.2s ease-in-out;
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2.2rem;
+      color: var(--yellow);
+      margin-bottom: 30px;
+    }
+
+    .section p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+
+    .services {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .service img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #141414;
+      color: var(--gray);
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    .social {
+      font-size: 1.8rem;
+      margin: 0 12px;
+      color: var(--yellow);
+      transition: all 0.2s ease-in-out;
+    }
+
+    .social:hover {
+      transform: scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.webp" alt="ARJ Alarmes">
+    <nav>
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#servicos">Serviços</a>
+      <a href="index.html#contato">Contato</a>
+      <a href="clientes.html">Clientes Satisfeitos</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h2>Clientes Satisfeitos</h2>
+    <p>Alguns registros de trabalhos realizados pela nossa equipe:</p>
+    <div class="services">
+      <div class="service"><img src="trabalho1.webp" alt="Trabalho 1"></div>
+      <div class="service"><img src="trabalho2.webp" alt="Trabalho 2"></div>
+      <div class="service"><img src="trabalho3.webp" alt="Trabalho 3"></div>
+      <div class="service"><img src="trabalho4.webp" alt="Trabalho 4"></div>
+      <div class="service"><img src="trabalho5.webp" alt="Trabalho 5"></div>
+      <div class="service"><img src="trabalho6.webp" alt="Trabalho 6"></div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 ARJ ALARMES. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    ScrollReveal().reveal('.section', { delay: 300, distance: '60px', duration: 1000, origin: 'bottom', interval: 200 });
+  </script>
+</body>
+</html>

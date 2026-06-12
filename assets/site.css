@@ -11,8 +11,10 @@
   --bg: #141218;
   --surface: #211f26;
   --surface-high: #2b2930;
+  --surface-higher: #35323a;
   --text: #e6e0e9;
   --muted: #cac4d0;
+  --muted-soft: #a9a2b1;
   --primary: #f0c000;
   --primary-ink: #211a00;
   --secondary: #4a4458;
@@ -54,39 +56,12 @@ a {
 
 .nav-shell {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  max-width: 900px;
+  justify-content: center;
+  max-width: 960px;
   margin: 0 auto;
 }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--text);
-  text-decoration: none;
-}
-
-.brand img {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
-.brand-text {
-  display: grid;
-  gap: 1px;
-}
-
-.brand-name {
-  font-size: .95rem;
-  font-weight: 700;
-  letter-spacing: .04em;
-}
-
-.brand-line {
+.site-header .brand {
   display: none;
 }
 
@@ -106,42 +81,47 @@ a {
   background: var(--surface-high);
   color: var(--text);
   font-size: .9rem;
-  font-weight: 500;
+  font-weight: 560;
   text-decoration: none;
+  transition: transform .18s ease, background-color .18s ease, color .18s ease;
 }
 
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
-  background: var(--secondary);
-  color: var(--secondary-ink);
+  transform: translateY(-1px);
+  background: var(--primary);
+  color: var(--primary-ink);
 }
 
 .container {
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   padding: 0 16px;
 }
 
 .hero {
-  display: block;
-  padding: 30px 16px 36px;
+  padding: 26px 16px 34px;
   text-align: center;
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
 }
 
 .hero-copy::before {
   content: "";
   display: block;
-  width: 128px;
-  height: 128px;
-  margin: 0 auto 18px;
-  border-radius: 32px;
-  background: var(--secondary) url("../logo.webp") center / 82% no-repeat;
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 16px;
+  background: url("../logo.webp") center / contain no-repeat;
+  transition: transform .18s ease;
+}
+
+.hero-copy::before:hover {
+  transform: translateY(-2px) scale(1.03);
 }
 
 h1,
@@ -155,16 +135,37 @@ figure {
 h1 {
   margin-bottom: 10px;
   color: var(--text);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 600;
-  line-height: 1.1;
+  font-size: clamp(2.1rem, 5vw, 3.2rem);
+  font-weight: 680;
+  line-height: 1.08;
 }
 
 .hero-lead {
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto;
   color: var(--muted);
   font-size: 1.05rem;
+}
+
+.trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.trust-row span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 12px;
+  border: 1px solid color-mix(in srgb, var(--primary) 36%, var(--outline));
+  border-radius: 999px;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--primary) 8%, var(--surface));
+  font-size: .84rem;
+  font-weight: 560;
 }
 
 .hero-actions,
@@ -185,13 +186,18 @@ h1 {
   padding: 0 18px;
   border: 0;
   border-radius: 999px;
+  background: var(--surface-high);
+  color: var(--text);
   font-size: .92rem;
-  font-weight: 600;
+  font-weight: 650;
   text-decoration: none;
   white-space: nowrap;
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background-color .18s ease;
 }
 
-.button.primary {
+.button.primary,
+.button[href*="wa.me"],
+.button[href*="instagram.com"] {
   background: var(--primary);
   color: var(--primary-ink);
 }
@@ -202,7 +208,9 @@ h1 {
 }
 
 .button:hover {
+  transform: translateY(-1px);
   filter: brightness(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .22);
 }
 
 .button .fa-brands {
@@ -214,29 +222,59 @@ h1 {
   font-family: "Material Symbols Rounded";
   font-size: 22px;
   font-style: normal;
-  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+  font-variation-settings: "FILL" 1, "wght" 420, "GRAD" 0, "opsz" 24;
   line-height: 1;
 }
 
 .hero-media {
-  max-width: 620px;
+  max-width: 720px;
   margin: 26px auto 0;
+}
+
+.media-main,
+.about-panel,
+.contact-card,
+.service-card,
+.gallery-item,
+.highlight-grid article {
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background: var(--surface);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background-color .18s ease;
 }
 
 .media-main {
   overflow: hidden;
-  border-radius: 16px;
-  background: var(--surface);
+  background: var(--surface-high);
 }
 
 .media-main img {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 16 / 8.7;
   object-fit: cover;
+  transition: transform .22s ease, filter .22s ease;
+}
+
+.media-main:hover,
+.service-card:hover,
+.gallery-item:hover,
+.highlight-grid article:hover,
+.about-panel:hover,
+.contact-card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--primary) 46%, var(--outline));
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
+}
+
+.media-main:hover img,
+.service-card:hover img,
+.gallery-item:hover img {
+  transform: scale(1.025);
+  filter: brightness(1.06);
 }
 
 .section {
-  padding: 28px 0 40px;
+  padding: 30px 0 42px;
 }
 
 .section.compact {
@@ -255,28 +293,22 @@ h1 {
 
 h2 {
   margin-bottom: 10px;
-  font-size: clamp(1.45rem, 3vw, 2rem);
-  font-weight: 560;
-  line-height: 1.2;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 620;
+  line-height: 1.18;
 }
 
 .section-heading p,
 .about-text,
-.contact-card p {
+.contact-card p,
+.highlight-grid p {
   color: var(--muted);
   font-size: .98rem;
 }
 
 .about-grid {
-  display: block;
-}
-
-.about-panel,
-.contact-card,
-.service-card,
-.gallery-item {
-  border-radius: 16px;
-  background: var(--surface);
+  display: grid;
+  gap: 12px;
 }
 
 .about-panel {
@@ -298,19 +330,50 @@ h2 {
   gap: 10px;
   color: var(--muted);
   font-size: .95rem;
+  transition: transform .18s ease, color .18s ease;
+}
+
+.check-list li:hover {
+  transform: translateX(2px);
+  color: var(--text);
 }
 
 .check-list .material-symbols-rounded {
   flex: 0 0 auto;
-  color: var(--ok);
+  color: var(--primary);
   font-size: 20px;
 }
 
+.highlight-grid,
 .services-grid,
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
+}
+
+.highlight-grid article {
+  padding: 22px 18px;
+  text-align: center;
+}
+
+.highlight-grid .material-symbols-rounded {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 12px;
+  border-radius: 14px;
+  background: var(--surface-high);
+  color: var(--primary);
+  font-size: 28px;
+}
+
+.highlight-grid strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1rem;
+  font-weight: 650;
 }
 
 .service-card,
@@ -323,6 +386,7 @@ h2 {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
+  transition: transform .22s ease, filter .22s ease;
 }
 
 .service-card-body {
@@ -334,7 +398,12 @@ h2 {
   margin-bottom: 8px;
   color: var(--text);
   font-size: 1rem;
-  font-weight: 560;
+  font-weight: 620;
+  transition: color .18s ease;
+}
+
+.service-card:hover h3 {
+  color: var(--primary);
 }
 
 .service-card p {
@@ -346,7 +415,7 @@ h2 {
   display: block;
   max-width: 780px;
   margin: 0 auto;
-  padding: 26px 18px;
+  padding: 28px 18px;
   text-align: center;
 }
 
@@ -360,7 +429,7 @@ h2 {
 
 .footer {
   padding: 28px 16px;
-  color: var(--muted);
+  color: var(--muted-soft);
   font-size: .9rem;
   text-align: center;
 }
@@ -370,130 +439,8 @@ h2 {
   gap: 4px;
 }
 
-@media (max-width: 620px) {
-  .site-header {
-    padding: 14px 10px;
-  }
-
-  .brand {
-    display: none;
-  }
-
-  .hero {
-    padding-top: 20px;
-  }
-
-  .hero-copy::before {
-    width: 104px;
-    height: 104px;
-    border-radius: 26px;
-  }
-
-  .hero-actions,
-  .contact-actions {
-    flex-direction: column;
-  }
-
-  .button {
-    width: 100%;
-  }
-}
-
-/* Ajustes finais do topo e da logo principal. */
-.site-header .brand {
-  display: none;
-}
-
-.hero-copy::before {
-  border-radius: 50%;
-  background-size: 84%;
-}
-
-@media (max-width: 620px) {
-  .hero-copy::before {
-    border-radius: 50%;
-  }
-}
-
-/* Logo principal sem fundo. */
-.hero-copy::before {
-  background-color: transparent;
-  background-size: contain;
-}
-
-/* Microinteracoes discretas. */
-.nav-links a,
-.button,
-.service-card,
-.gallery-item,
-.media-main,
-.hero-copy::before {
-  transition: transform .18s ease, background-color .18s ease, color .18s ease, filter .18s ease, box-shadow .18s ease, border-color .18s ease;
-}
-
-.nav-links a:hover {
-  transform: translateY(-1px);
-}
-
-.button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, .22);
-}
-
-.service-card:hover,
-.gallery-item:hover,
-.media-main:hover {
-  transform: translateY(-3px);
-  border-color: color-mix(in srgb, var(--primary) 42%, var(--outline));
-  box-shadow: 0 10px 24px rgba(0, 0, 0, .24);
-}
-
-.service-card img,
-.gallery-item img,
-.media-main img {
-  transition: transform .22s ease, filter .22s ease;
-}
-
-.service-card:hover img,
-.gallery-item:hover img,
-.media-main:hover img {
-  transform: scale(1.025);
-  filter: brightness(1.06);
-}
-
-.hero-copy::before:hover {
-  transform: translateY(-2px) scale(1.03);
-}
-
-.check-list li {
-  transition: color .18s ease, transform .18s ease;
-}
-
-.check-list li:hover {
-  color: var(--text);
-  transform: translateX(2px);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: .01ms !important;
-    animation-duration: .01ms !important;
-    animation-iteration-count: 1 !important;
-    scroll-behavior: auto !important;
-  }
-}
-
-/* Botoes sociais. */
-.button[href*="wa.me"] {
-  background: #25d366;
-  color: #062b14;
-}
-
-.button[href*="instagram.com"] {
-  background: linear-gradient(135deg, #feda75 0%, #fa7e1e 28%, #d62976 55%, #962fbf 76%, #4f5bd5 100%);
-  color: #fff;
+.footer a:hover {
+  color: var(--primary);
 }
 
 .whatsapp-float {
@@ -507,8 +454,8 @@ h2 {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  background: #25d366;
-  color: #062b14;
+  background: var(--primary);
+  color: var(--primary-ink);
   font-size: 1.95rem;
   text-decoration: none;
   box-shadow: 0 10px 28px rgba(0, 0, 0, .32);
@@ -521,7 +468,29 @@ h2 {
   box-shadow: 0 14px 34px rgba(0, 0, 0, .38);
 }
 
-@media (max-width: 520px) {
+@media (max-width: 620px) {
+  .site-header {
+    padding: 14px 10px;
+  }
+
+  .hero {
+    padding-top: 20px;
+  }
+
+  .hero-copy::before {
+    width: 78px;
+    height: 78px;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .button {
+    width: 100%;
+  }
+
   .whatsapp-float {
     right: 14px;
     bottom: 14px;
@@ -531,130 +500,13 @@ h2 {
   }
 }
 
-/* Reforco da cor da marca ARJ. */
-.nav-links a:hover,
-.nav-links a[aria-current="page"] {
-  background: var(--primary);
-  color: var(--primary-ink);
-}
-
-.check-list .material-symbols-rounded {
-  color: var(--primary);
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 42px;
-  height: 3px;
-  margin: 10px auto 0;
-  border-radius: 999px;
-  background: var(--primary);
-}
-
-.about-grid .section-heading h2::after,
-.contact-card h2::after {
-  margin-left: 0;
-}
-
-.service-card:hover,
-.gallery-item:hover,
-.media-main:hover,
-.about-panel:hover,
-.contact-card:hover {
-  border-color: var(--primary);
-}
-
-.service-card:hover h3 {
-  color: var(--primary);
-}
-
-.button.tonal:hover {
-  background: var(--primary);
-  color: var(--primary-ink);
-}
-
-.footer a:hover {
-  color: var(--primary);
-}
-
-/* Sem linhas decorativas nos titulos. */
-h2::after {
-  display: none;
-}
-
-/* Botoes de contato na cor da empresa. */
-.button[href*="wa.me"],
-.button[href*="instagram.com"] {
-  background: var(--primary);
-  color: var(--primary-ink);
-}
-
-.button[href*="wa.me"]:hover,
-.button[href*="instagram.com"]:hover {
-  background: var(--primary);
-  color: var(--primary-ink);
-  filter: brightness(1.06);
-}
-
-.instagram-float {
-  position: fixed;
-  right: 18px;
-  bottom: 86px;
-  z-index: 40;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: var(--primary);
-  color: var(--primary-ink);
-  font-size: 1.85rem;
-  text-decoration: none;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, .32);
-  transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
-}
-
-.instagram-float:hover {
-  transform: translateY(-3px) scale(1.04);
-  filter: brightness(1.06);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, .38);
-}
-
-@media (max-width: 520px) {
-  .instagram-float {
-    right: 14px;
-    bottom: 78px;
-    width: 54px;
-    height: 54px;
-    font-size: 1.72rem;
-  }
-}
-
-/* Flutuante somente WhatsApp na cor da empresa. */
-.whatsapp-float {
-  background: var(--primary);
-  color: var(--primary-ink);
-}
-
-.instagram-float {
-  display: none;
-}
-
-/* Logo principal menor e sem fundo. */
-.hero-copy::before {
-  width: 88px;
-  height: 88px;
-  background-color: transparent;
-  background-size: contain;
-  border-radius: 0;
-}
-
-@media (max-width: 620px) {
-  .hero-copy::before {
-    width: 78px;
-    height: 78px;
-    border-radius: 0;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
   }
 }

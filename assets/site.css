@@ -111,3 +111,20 @@ h2 { margin-bottom: 10px; font-size: clamp(1.55rem, 3vw, 2.05rem); font-weight: 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
 }
+
+/* Garantia: botoes sem tom roxo. */
+.button.tonal {
+  background: #303030;
+  color: #f2f2f2;
+}
+
+.button.tonal:hover,
+.button.tonal:focus-visible {
+  background: #3a3a3a;
+  color: #ffffff;
+}
+
+.button[href*="instagram.com"] {
+  background: var(--primary);
+  color: var(--primary-ink);
+}

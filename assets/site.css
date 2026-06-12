@@ -2,18 +2,18 @@
 
 :root {
   color-scheme: dark;
-  --bg: #141218;
-  --surface: #211f26;
-  --surface-high: #2b2930;
-  --surface-highest: #36343b;
-  --text: #e6e0e9;
-  --muted: #cac4d0;
-  --muted-soft: #a9a2b1;
+  --bg: #151515;
+  --surface: #202020;
+  --surface-high: #292929;
+  --surface-highest: #333333;
+  --text: #f2f2f2;
+  --muted: #c7c7c7;
+  --muted-soft: #9c9c9c;
   --primary: #f0c000;
   --primary-ink: #211a00;
-  --secondary: #4a4458;
-  --secondary-ink: #e8def8;
-  --outline: #49454f;
+  --secondary: #303030;
+  --secondary-ink: #f2f2f2;
+  --outline: #454545;
 }
 
 html { min-width: 320px; overflow-x: hidden; scroll-behavior: smooth; background: var(--bg); color: var(--text); }
